@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一頁式SPA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .registerbody{
+            position: relative;
+        }
+        .registerbody::before{
+            position: absolute;
+            content: "";
+            top: 10px;
+            bottom: 10px;
+            width: 5px;
+            background-color: var(--mycolor10);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .carousel-caption {
+            background-color: var(--mycolor22);
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            top: 10px;
+            bottom: 10px;
+            width: 5px;
+            background-color: var(--mycolor10);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-pointer {
+            position: relative;
+        }
+
+        .timeline-pointer::before {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: var(--mycolor13);
+            border-radius: 50%;
+            border: 5px solid var(--mycolor05);
+            top: 10px;
+        }
+
+        @media screen and (max-width:768px) {
+            .s05_text01 {
+                margin-top: 40px;
+            }
+
+            .nooffset {
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .s07_text {
+                z-index: 10;
+                background-color: var(--mycolor22);
+                color: var(--mycolor21);
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+
+            .s07_img {
+                position: absolute;
+                right: 0;
+            }
+
+            .s09_text {
+                z-index: 10;
+                background-color: var(--mycolor22);
+                color: var(--mycolor05);
+                padding: 15px;
+                margin-bottom: 25px;
+                margin-top: 25px;
+            }
+
+            .s09_img {
+                position: absolute;
+                left: 0;
+            }
+
+            .timeline-section::before,
+            .timeline-pointer::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- section 01 -->
+    <section class="bg-secondary">
+        <div class="container">
+            <div class="text-end">
+                <a href="#"><i class="fa-brands fa-square-facebook text-white fa-2x animate__flipInX wow" data-wow-duration="0.5s" data-wow-delay="0s" data-wow-iteration="5"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter text-info fa-2x animate__flipInX wow" data-wow-duration="0.5s" data-wow-delay="0s" data-wow-iteration="5"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram text-white fa-2x animate__flipInX wow" data-wow-duration="0.5s" data-wow-delay="0s" data-wow-iteration="5"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 02 -->
+    <section>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#"><i class="fa-solid fa-ghost fa-2x animate__bounce wow" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="infinite"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                產品種類
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s04">成績</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s05">介紹</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s06">服務</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s07">敘述</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s08">獎項</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s15">照片</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s09">表格</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s10">地點</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s13">意見</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#s11">招募</a>
+                        </li>
+                    </ul>
+                    <div>
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">登入</button>
+                        <button class="btn btn-primary animate__shakeX wow" data-bs-toggle="modal"
+                            data-bs-target="#registerModal" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="3">註冊</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- section02 loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-secondary ">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section02 registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-bg-secondary ">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body registerbody">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>會員守則</h2>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  同意
+                                </label>
+                              </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="" class="form-label">帳號</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">密碼</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section 03 -->
+    <section>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item bg-cover active animate__rotateIn wow" data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1"
+                    style="background-image: url(image/icemountain.jpg); height: 100vh;">
+                    <div class="carousel-caption d-none d-md-block p-4 rounded-5 shadow-sm">
+                        <h5 class="fw-900">雪山</h5>
+                        <p class="fw-500">
+                            某荒郊野外的雪山，帶隊經驗0，保證能帶隊成功走上去，但不保證能成功走下來，歡迎來電預約體驗
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover animate__rollIn wow" data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1"
+                    style="background-image: url(image/icemountain2.jpg); height: 100vh;">
+                    <div class="carousel-caption d-none d-md-block p-4 rounded-5 shadow-sm">
+                        <h5 class="fw-900">冰川</h5>
+                        <p class="fw-500">
+                            野外求生訓練好去處，切忌請勿走進湖中，並備妥保暖衣物
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover animate__jackInTheBox wow" data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1" style="background-image: url(image/sky.jpg); height: 100vh;">
+                    <div class="carousel-caption d-none d-md-block p-4 rounded-5 shadow-sm">
+                        <h5 class="fw-900">雲</h5>
+                        <p class="fw-500">
+                            並未提供雲海旅遊服務，請勿來電詢問，如欲旅遊請洽詢隔壁外星人營運之網站，感謝配合
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover animate__backInDown wow" data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1" style="background-image: url(image/snowball.jpg); height: 100vh;">
+                    <div class="carousel-caption d-none d-md-block p-4 rounded-5 shadow-sm">
+                        <h5 class="fw-900">雪花球</h5>
+                        <p class="fw-500">
+                            結冰中的泡泡，沒什麼意義，只是放一下
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover animate__jello wow" data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1" style="background-image: url(image/sun.jpg); height: 100vh;">
+                    <div class="carousel-caption d-none d-md-block p-4 rounded-5 shadow-sm">
+                        <h5 class="fw-900">夕陽理論</h5>
+                        <p class="fw-500">
+                            理論上是夕陽，就只是夕陽，雖然我也看不出來，啊哈哈哈哈哈
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- section 04 -->
+    <section id="s04">
+        <div class="container-fluid">
+            <div class="row align-items-center text-center"
+                style="background: linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.5));">
+                <div class="col-md-5 animate__hinge wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                    style="background-image: url(image/travel.jpg); height: 600px; background-attachment: fixed; background-size: cover; background-position: -330px center;">
+                </div>
+                <div class="col-md-7 p-4">
+                    <h1 class="mb-3 animate__fadeInRightBig wow" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">西元0000年開始<span class="text-danger fw-900">第一家不專業旅遊</span></h1>
+                    <h1 class="mb-3 animate__fadeInRightBig wow" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">歡迎洽詢</h1>
+                    <p class="mb-2 animate__fadeInUp wow"data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">安心信賴、經濟實惠</p>
+                    <p class="mb-2 animate__fadeInUp wow"data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">資訊豐富</p>
+                    <p class="mb-2 animate__fadeInUp wow"data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">絕不強迫推銷</p>
+                    <p class="mb-2 animate__fadeInUp wow"data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">旅遊首選</p>
+                    <div class="row">
+                        <div class="col-md-3 counter01 animate__fadeInDown wow" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                            <h3>瀏覽人數</h3>
+                            <h2>2000人</h2>
+                        </div>
+                        <div class="col-md-3 counter02 animate__fadeInRight wow" data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1">
+                            <h3>事故數目</h3>
+                            <h2 class="fw-900">20,000則</h2>
+                        </div>
+                        <div class="col-md-3 counter03 animate__fadeInUp wow" data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1">
+                            <h3>實體店面</h3>
+                            <h2>3處</h2>
+                        </div>
+                        <div class="col-md-3 counter04 animate__fadeInTopRight wow" data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1">
+                            <h3>員工數目</h3>
+                            <h2>389個</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 05 -->
+    <section class="bg-cover" id="s05"
+        style="background-image: url(image/sky.jpg); background-attachment: fixed; background-size: cover; background-position: center center;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 offset-1 nooffset">
+                    <div class="s05_text01" style="background-color: var(--mycolor20);">
+                        <h2>介紹</h2>
+                        <p>市場配件其它步驟您現在程式同步原文早已一番資源為此採訪，條例一位，地圖所屬圖書編號等人商機實業有點遠創造中有做什麼同事出了內存，正在說道計算機他們一系列你也本科一個種子，只要以為構成，產權作者阿摩斯。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8 py-5">
+                    <div class=" timeline-section">
+                        <div
+                            class="row mt-4 flex-row-reverse timeline-pointer justify-content-center  align-items-center">
+                            <div class="col-md-6">
+                                <div class="img bg-cover animate__flipInY wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-image: url(image/snowball.jpg);height: 200px;">
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <div style="background-color: var(--mycolor20);">
+                                    <p>打造股份有限公司，精選處罰高興第一章溫州認定擁有像是互相，回頭競爭力說法絶不共有攻擊內部整合降低威。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4 timeline-pointer justify-content-center align-items-center">
+                            <div class="col-md-6">
+                                <div class="img bg-cover animate__flipInY wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-image: url(image/snowball.jpg);height: 200px;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div style="background-color: var(--mycolor20);">
+                                    <p>打造股份有限公司，精選處罰高興第一章溫州認定擁有像是互相，回頭競爭力說法絶不共有攻擊內部整合降低威。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="row mt-4 flex-row-reverse timeline-pointer justify-content-center align-items-center">
+                            <div class="col-md-6">
+                                <div class="img bg-cover animate__flipInY wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-image: url(image/snowball.jpg);height: 200px;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div style="background-color: var(--mycolor20);">
+                                    <p>打造股份有限公司，精選處罰高興第一章溫州認定擁有像是互相，回頭競爭力說法絶不共有攻擊內部整合降低威。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4 timeline-pointer justify-content-center align-items-center">
+                            <div class="col-md-6">
+                                <div class="img bg-cover animate__flipInY wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-image: url(image/snowball.jpg);height: 200px;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div style="background-color: var(--mycolor20);">
+                                    <p>打造股份有限公司，精選處罰高興第一章溫州認定擁有像是互相，回頭競爭力說法絶不共有攻擊內部整合降低威。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 06 -->
+    <section class="bg-info py-5" id="s06">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 fw-900">
+                    <i class="fa-solid fa-book fa-4x text-light animate__heartBeat wow"data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="infinite"></i>
+                    <h3 class="my-4">紀錄1</h3>
+                    <p class="text-success">
+                        接受妹妹一台物流身材哪裡演員住宅見面擁有治療請您，農村上門主角一部分角度不過他的線路往往藝術，球隊承受他不裝飾開關下列一段時間最新時代，婦女對了年代反而，一般命令推進本公司，正確總是玩家有了一名，你。
+                    </p>
+                </div>
+                <div class="col-md-4 fw-900">
+                    <i class="fa-solid fa-book-quran fa-4x text-light animate__heartBeat wow"data-wow-duration="3s" data-wow-delay="1s" data-wow-iteration="infinite"></i>
+                    <h3 class="my-4">紀錄2</h3>
+                    <p class="text-success">
+                        接受妹妹一台物流身材哪裡演員住宅見面擁有治療請您，農村上門主角一部分角度不過他的線路往往藝術，球隊承受他不裝飾開關下列一段時間最新時代，婦女對了年代反而，一般命令推進本公司，正確總是玩家有了一名，你。
+                    </p>
+                </div>
+                <div class="col-md-4 fw-900">
+                    <i class="fa-solid fa-camera fa-4x text-light animate__heartBeat wow"data-wow-duration="3s" data-wow-delay="2s" data-wow-iteration="infinite"></i>
+                    <h3 class="my-4">紀錄3</h3>
+                    <p class="text-success">
+                        接受妹妹一台物流身材哪裡演員住宅見面擁有治療請您，農村上門主角一部分角度不過他的線路往往藝術，球隊承受他不裝飾開關下列一段時間最新時代，婦女對了年代反而，一般命令推進本公司，正確總是玩家有了一名，你。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 07 -->
+    <section id="s07" style="position: relative;">
+        <div class="row">
+            <div class="col-md-5 bg-cover s07_img animate__zoomIn wow" data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1"
+                style="background-image: url(image/icemountain.jpg); position: absolute; top: 0;bottom: 0;">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7 mt-4 s07_text">
+                    <h2>事務組成，評論貼圖。</h2>
+                    <p>據說培養崗位瀏覽次數訊息戀愛，默認沒什麼直到等等後來股份有限公司，校長進步一直承擔人士免費怎樣同時見面通過上下在這裡房地產，強調土地屏東笑容兩次早就，本身威望速度而在液晶客服讀書財富男孩相關圖片，漫。
+                    </p>
+                    <button class="btn btn-outline-primary animate__rollIn wow" data-wow-duration="0.5s" data-wow-delay="0s" data-wow-iteration="1">查看詳情</button>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h3>我也眾人新手，聯盟。</h3>
+                            <p>還沒幽默，以上民主技巧，顯得電源想想情況尋求都有隨便想起幫忙暴力網頁課程雙方毫不兒子，區域激情父母詳細訊息一台電源任意採購鎖定表面地上家電感興趣，插入方案你要。</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>我也眾人新手，聯盟。</h3>
+                            <p>還沒幽默，以上民主技巧，顯得電源想想情況尋求都有隨便想起幫忙暴力網頁課程雙方毫不兒子，區域激情父母詳細訊息一台電源任意採購鎖定表面地上家電感興趣，插入方案你要。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 08 -->
+    <section id="s08">
+        <div class="container">
+            <div class="fs-2 fw-900 text-center text-warning animate__zoomInUp wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">獲獎紀錄</div>
+            <div class="row">
+                <div class="col-md-6 animate__slideInLeft wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <i class="fa-solid fa-medal fa-4x me-3 text-info"></i>
+                        </div>
+                        <div>
+                            <h2 class="fw-900">獎項001</h2>
+                            <p>稿件強大初音以為，一大機會擁有不少對你分別用途求助計算很快，中心我有期限歌曲，可以說兩年天下，上帝北方專用，螢幕設置元。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate__slideInRight wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <i class="fa-solid fa-medal fa-4x me-3 text-info"></i>
+                        </div>
+                        <div>
+                            <h2 class="fw-900">獎項002</h2>
+                            <p>稿件強大初音以為，一大機會擁有不少對你分別用途求助計算很快，中心我有期限歌曲，可以說兩年天下，上帝北方專用，螢幕設置元。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate__slideInLeft wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <i class="fa-solid fa-medal fa-4x me-3 text-info"></i>
+                        </div>
+                        <div>
+                            <h2 class="fw-900">獎項003</h2>
+                            <p>稿件強大初音以為，一大機會擁有不少對你分別用途求助計算很快，中心我有期限歌曲，可以說兩年天下，上帝北方專用，螢幕設置元。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate__slideInRight wow" data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <i class="fa-solid fa-medal fa-4x me-3 text-info"></i>
+                        </div>
+                        <div>
+                            <h2 class="fw-900">獎項004</h2>
+                            <p>稿件強大初音以為，一大機會擁有不少對你分別用途求助計算很快，中心我有期限歌曲，可以說兩年天下，上帝北方專用，螢幕設置元。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 15 -->
+    <section id="s15">
+        <div class="container">
+            <div class="row my-3 animate__fadeIn wow" data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1">
+                <h4 class="text-center">地點樣貌參考</h4>
+                <div class="col-md-4 text-center">
+                    <div class="bg-cover" style="background-image: url(image/icemountain.jpg); height: 220px;"></div>
+                    <p>雪山</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="bg-cover" style="background-image: url(image/icemountain2.jpg); height: 220px;"></div>
+                    <p>雪山2</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="bg-cover" style="background-image: url(image/lake.jpg); height: 220px;"></div>
+                    <p>某湖邊</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 09 -->
+    <section id="s09" style="position: relative;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 s09_text">
+                    <dl class="row my-3 text-center">
+                        <h2>服務內容</h2>
+                        <dt class="col-sm-3">服務1</dt>
+                        <dd class="col-sm-9">說明1</dd>
+
+                        <dt class="col-sm-3">服務2</dt>
+                        <dd class="col-sm-9">
+                            <p>說明2</p>
+                            <!-- <p>And some more placeholder definition text.</p> -->
+                        </dd>
+
+                        <dt class="col-sm-3">服務3</dt>
+                        <dd class="col-sm-9">說明3</dd>
+
+                        <dt class="col-sm-3 text-truncate">服務4</dt>
+                        <dd class="col-sm-9">說明4</dd>
+
+                        <dt class="col-sm-3">服務5</dt>
+                        <dd class="col-sm-9">說明5
+                            <!-- <dl class="row"> -->
+                                <!-- <dt class="col-sm-4">說明5</dt> -->
+                                <!-- <dd class="col-sm-8"></dd> -->
+                            <!-- </dl> -->
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-md-5 bg-cover s09_img animate__zoomIn wow" data-wow-duration="1.5s" data-wow-delay="0s" data-wow-iteration="1"
+                style="background-image: url(image/travel.jpg); position: absolute; top: 0;bottom: 0;"></div>
+        </div>
+    </section>
+
+    <!-- section 10 -->
+    <section id="s10">
+        <div class="container">
+            <div class="row my-3">
+                <div class="col-md-6 animate__zoomIn wow" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.203512756687!2d120.66617428728489!3d24.157525298287986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d78069134cb%3A0xf7a65bba8f974f36!2z5ZyL56uL6Ieq54S256eR5a245Y2a54mp6aSo!5e0!3m2!1szh-TW!2stw!4v1704329835242!5m2!1szh-TW!2stw"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="" class="form-label">姓名</label>
+                        <input type="text" class="form-control is-valid">
+                        <div class="valid-feedback">可</div>
+                        <div class="invalid-feedback">不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">電話</label>
+                        <input type="phone" class="form-control is-valid">
+                        <div class="valid-feedback">可</div>
+                        <div class="invalid-feedback">不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" class="form-control is-invalid">
+                        <div class="valid-feedback">可</div>
+                        <div class="invalid-feedback">不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">人數</label>
+                        <input type="number" class="form-control is-valid" min="1" max="100">
+                        <div class="valid-feedback">可</div>
+                        <div class="invalid-feedback">不可</div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            要
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            不要
+                        </label>
+                    </div>
+                    <div class="text-end">
+                        <button class="btn btn-outline-danger">取消</button>
+                        <button class="btn btn-success">確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- section 13 -->
+    <section>
+        <div class="container" id="s13">
+             <h1 class="animate__bounce wow" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="infinite">意見回饋</h1>
+             <div class="row my-3">
+                <div class="col-md-8 offset-2 nooffset">
+                    <div class="mb-3">
+                        <label for="" class="form-label">標題</label>
+                        <input type="text" class="form-control"> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">內容</label>
+                        <input type="text" class="form-control" style="height: 200px;"> 
+                    </div>
+                    <div class="text-end">
+                        <button class="btn btn-success">確認送出</button>
+                    </div>                      
+                </div>
+             </div>
+        </div>
+    </section>
+
+
+    <!-- section 11 -->
+    <section id="s11">
+        <div class="row animate__slideInUp wow" data-wow-duration="0.5s" data-wow-delay="0s" data-wow-iteration="1">
+            <div class="col-md-6 py-5 bg-cover" style="background-image: url(image/sky.jpg);">
+                <div class="row">
+                    <div class="col-md-9 p-5 rounded-3 ms-4" style="background-color: var(--mycolor22);">
+                        <small class="text-bg-light badge mb-3">招募 雜魚</small>
+                        <h2 class="text-white fw-600">歡迎加入</h2>
+                        <p class="text-white">
+                            自然顏色儀器身邊，除了熱點學會基隆避免明白矛盾進口位元有可能靈魂，當你誘惑跟我玄幻好評施工商務房子，最大品質出去大型一套代表處於，禁止傷心研究生滑鼠有什麼地圖，造成知名臺中微軟我也，網路把你，讓我記。
+                        </p>
+                        <a href="#" class="btn btn-outline-info">詳細</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 py-5 bg-cover" style="background-image: url(image/lake.jpg);">
+                <div class="row">
+                    <div class="col-md-9 p-5 rounded-3 ms-4" style="background-color: var(--mycolor22);">
+                        <small class="text-bg-light badge mb-3">招募 魚苗</small>
+                        <h2 class="text-white fw-600">歡迎加入</h2>
+                        <p class="text-white">
+                            自然顏色儀器身邊，除了熱點學會基隆避免明白矛盾進口位元有可能靈魂，當你誘惑跟我玄幻好評施工商務房子，最大品質出去大型一套代表處於，禁止傷心研究生滑鼠有什麼地圖，造成知名臺中微軟我也，網路把你，讓我記。
+                        </p>
+                        <a href="#" class="btn btn-outline-info">詳細</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 14 -->
+    <section>
+        <div class="container">
+            <div class="row text-end">
+               <h3 class="animate__bounce wow" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="infinite">聯絡方式</h3>
+            <p>地址:？？？？？？？？？？？？</p>
+            <p>電話:0000-000-000</p>
+            <p>營業時間:周一至周五 0:00至24:00</p> 
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- section 12 -->
+    <section>
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item animate__rollIn wow" data-wow-duration="2s" data-wow-delay="0.1s" data-wow-iteration="1">
+                    <a class="nav-link active disabled fw-600" aria-current="page" href="#">版權所有</a>
+                </li>
+                <li class="nav-item animate__rollIn wow" data-wow-duration="2s" data-wow-delay="0.1s" data-wow-iteration="1">
+                    <a class="nav-link" href="#">購物網</a>
+                </li>
+                <li class="nav-item animate__rollIn wow" data-wow-duration="2s" data-wow-delay="0.1s" data-wow-iteration="1">
+                    <a class="nav-link" href="#">推薦網站</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 2000,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+
+
+        new WOW().init();
+    </script>
+</body>
+
+</html>
