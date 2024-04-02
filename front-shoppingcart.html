@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraus購物車</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .menus,
+        .add {
+            width: 30px;
+            height: 30px;
+            /* border: 1px solid #000; */
+            border-radius: 50%;
+            cursor: pointer;
+            /* display: flex; */
+            /* justify-content: center;
+            align-items: center; */
+            margin: 0px 10px;
+            background-color: black;
+            color: #fff;
+            font-size: 30px;
+            line-height: 30px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .menus {
+            line-height: 25px;
+        }
+
+        .table th,
+        .table td {
+            text-align: center;
+        }
+
+        .orderNum {
+            width: 60px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body style="background-color: #ddebed;">
+    <!-- section01-navbar -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">首頁</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="front-home.html">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="front-product.html">商品</a>
+                        </li>
+                        <li class="nav-item dropdown d-none" id="manager_btn">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                管理功能
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="admin-memberList.html">會員瀏覽</a></li>
+                                <li><a class="dropdown-item" href="admin-productList.html">商品瀏覽</a></li>
+                                <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                                <li><a class="dropdown-item" href="admin-allorderList.html">訂單瀏覽</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li> -->
+                    </ul>
+                    <div>
+                        <a href="front-shoppingcart.html"><i class="fa-solid fa-cart-shopping fa-2x text-muted"></i></a>
+                        <span class="text-warning h3" id="user_message"></span>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal"
+                            id="meun_login_btn">登入</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal"
+                            id="meun_reg_btn">註冊</button>
+                        <button class="d-none btn btn-danger" id="logout_btn">登出</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- section01 loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-secondary ">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="login_account" name="login_account">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control" id="login_password" name="login_password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="login_btn">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section01 registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-bg-secondary ">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body registerbody">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>會員守則</h2>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="chk01" name="chk01">
+                                <label class="form-check-label" for="chk01">
+                                    同意
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="" class="form-label">帳號</label>
+                                <input type="text" class="form-control" placeholder="帳號字數4-8" id="account"
+                                    name="account">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">名稱</label>
+                                <input type="text" class="form-control" placeholder="用戶名稱(2至10字)" id="username"
+                                    name="username">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">密碼</label>
+                                <input type="password" class="form-control" placeholder="密碼字數5-10" id="password"
+                                    name="password">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control" placeholder="確認密碼" id="re_password"
+                                    name="re_password">
+                                <div class="valid-feedback">同</div>
+                                <div class="invalid-feedback">不同</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="請填寫Email" id="email" name="email">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">電話</label>
+                                <input type="text" class="form-control" placeholder="用戶電話" id="phone" name="phone">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="reg_btn">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>購物車</h3>
+    </div>
+
+    <!-- 購物內容 -->
+    <section>
+        <div class="container mt-3">
+            <table class="table" style="background-color: white;">
+                <thead class="table">
+                    <tr>
+                        <th>編號</th>
+                        <th>品名</th>
+                        <th>單價</th>
+                        <th>數量</th>
+                        <th>小計</th>
+                        <th>刪除</th>
+                    </tr>
+                </thead>
+                <tbody id="orderList">
+                    <!-- <tr>
+                        <td id="orderId">商品編號</td>
+                        <td id="orderPname">商品名稱</td>
+                        <td id="orderPrice">商品價格</td>
+                        <td>
+                            <div class="menus" id="menus">-</div>
+                            <input type="number" class="orderNum" id="orderNum" min="1" value="1" readonly="readonly">
+                            <div class="add" id="add">+</div>
+                        </td>
+                        <td id="subTotal">商品總價</td>
+                        <td id="orderDdelete">
+                            <button class="btn btn-danger">刪除</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 訂購資訊 -->
+    <section>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="orderDate" class="form-check-label">取貨日期</label>
+                            <input type="date" name="orderDate" id="orderDate" class="form-control">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="" class="form-label">付款方式</label>
+                                    </div>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="orderPayAll" name="payradio"
+                                        value="信用卡(全額付清)">
+                                    <label for="orderPayAll" class="form-check-label">信用卡(全額付清)</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="orderPayPart" name="payradio"
+                                        value="信用卡(訂金)">
+                                    <label for="orderPayPart" class="form-check-label">信用卡(訂金)</label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="" class="form-label">取貨方式</label>
+                                    </div>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="takeSelf" name="takeradio"
+                                        value="到店自取">
+                                    <label for="takeSelf" class="form-check-label">到店自取</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="takeDel" name="takeradio"
+                                        value="宅配">
+                                    <label for="takeDel" class="form-check-label">宅配</label>
+                                </div>
+                            </div>
+                            <div class="mt-3 d-none" id="takeAddr">
+                                <p>請填寫收件地址</p>
+                                <select class="form-select mb-3" aria-label="Default select example" id="cityName">
+                                    <option selected disabled>選擇縣市名稱</option>
+                                    <option value="1">台北市</option>
+                                    <option value="2">台中市</option>
+                                    <option value="3">Th</option>
+                                </select>
+                                <select class="form-select mb-3" aria-label="Default select example" id="areaName">
+                                    <option selected>選擇鄉鎮區名稱</option>
+                                    <option value="1">西屯區</option>
+                                    <option value="2">北區</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <select class="form-select mb-3" aria-label="Default select example" id="roadName">
+                                    <option selected>選擇鄉鎮區名稱</option>
+                                    <option value="1">西屯區</option>
+                                    <option value="2">北區</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="請填寫幾號" id="addrName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 訂購按鈕 -->
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-2 offset-8">
+                <button class="btn btn-primary" id="orderBtn">送出訂單</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- jquery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <!-- sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- 登入 -->
+    <script src="js/front-login.js"></script>
+    <!-- 登出 -->
+    <script src="js/logout.js"></script>
+    <!-- 註冊 -->
+    <script src="js/front-register.js"></script>
+    <script>
+        var CityCountyData = []; //縣市區資料
+        var AreaCountyData = [];
+        var selected_cityName; //已選取縣市名稱
+        var selected_areaName; //已選取鄉鎮區名稱
+        var mapShopcar = new Map();
+        var mapProduct = new Map();
+        var orderNumber; //訂單編號
+        var orderTotal = 0;//總金額
+        $(function () {
+            //讀取產品資料
+            $.ajax({
+                type: "GET",
+                url: "productList-Read-api.php",
+                async: false,
+                dataType: "json",
+                async: false,
+                success: showdata_pro,
+                error: function () {
+                    alert("error-memberList-Read-api.php");
+                }
+            });
+
+            getShopcarData();
+
+            //控制取貨日期最少為三天後
+            var t = new Date(new Date().getTime() + 86400000 * 3);
+
+            var year = t.getFullYear();
+            var month = t.getMonth() + 1 < 10 ? "0" + (t.getMonth() + 1) : (t.getMonth() + 1);
+            var torr = t.getDate() < 10 ? "0" + t.getDate() : t.getDate();
+
+            $("#orderDate").attr("min", year + "-" + month + "-" + torr);
+
+
+            //載入縣市鄉鎮區資料
+            axios.get('js/AllData.json')
+                .then(function (response) {
+                    // handle success
+                    // console.log(response);
+                    CityCountyData = response.data;
+                    $("#cityName").empty();
+                    $("#cityName").append('<option selected disabled>選擇縣市名稱</option>');
+                    // console.log(response.data);
+                    response.data.forEach(function (item) {
+                        var strHTML = '<option value="' + item.CityName + '">' + item.CityName + '</option>';
+                        $("#cityName").append(strHTML);
+                    });
+                })
+                .catch(function (error) {
+                    // handle error
+                    // console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
+
+            //監聽縣市選單
+            $("#cityName").change(function () {
+                selected_cityName = $(this).val();
+                // console.log(CityCountyData);
+                CityCountyData.forEach(function (item) {
+                    if (item.CityName == selected_cityName) {
+                        AreaCountyData = item.AreaList;
+                        $("#areaName").empty();
+                        $("#areaName").append('<option selected disabled>選擇鄉鎮區名稱</option>');
+                        item.AreaList.forEach(function (area) {
+                            var strHTML = '<option value="' + area.AreaName + '">' + area.AreaName + '</option>';
+                            $("#areaName").append(strHTML);
+                        });
+                    }
+                });
+            });
+
+            //監聽鄉鎮區選單
+            $("#areaName").change(function () {
+                selected_areaName = $(this).val();
+                // console.log(AreaCountyData);
+                AreaCountyData.forEach(function (item) {
+                    if (item.AreaName == selected_areaName) {
+                        $("#roadName").empty();
+                        $("#roadName").append('<option selected disabled>選擇街名稱</option>');
+                        item.RoadList.forEach(function (road) {
+                            var strHTML = '<option value="' + road.RoadName + '">' + road.RoadName + '</option>';
+                            $("#roadName").append(strHTML);
+                        });
+                    }
+                });
+            });
+
+            //控制填寫住址欄為是否顯示
+            $("#takeDel").change(function () {
+                $("#takeAddr").removeClass("d-none");
+            });
+            $("#takeSelf").change(function () {
+                $("#takeAddr").addClass("d-none");
+            });
+
+            //控制購買數量
+            $("#orderList #menus").click(function () {
+                // var i = $("#orderNum").val();
+                var i = $(this).siblings("#orderNum").val();
+                if (i > 1) {
+                    i--;
+                } else {
+                    i = 1;
+                }
+                var pno = $(this).data("id");
+                // console.log(pno);
+                setOrderNum(pno, i);
+                location.href = "front-shoppingcart.html";
+            });
+
+            $("#orderList #add").click(function () {
+                // var i = $("#orderNum").val();
+                var i = $(this).siblings("#orderNum").val();
+                if (i < 10) {
+                    i++;
+                } else {
+                    i = 10;
+                }
+                var pno = $(this).data("id");
+                // console.log(pno);
+                setOrderNum(pno, i);
+                location.href = "front-shoppingcart.html";
+            });
+
+
+            //監聽訂購按鈕
+            $("#orderBtn").click(function () {
+                //收集radio 付款方法的資料
+                var rad_pay = "";//紀錄付款方式
+                $.each($("input[name=payradio]:checked"), function () {
+                    // console.log($(this).val());
+                    rad_pay = $(this).val();
+                });
+
+                var rad_take = "";
+                var Addr = "";
+                var cityName = "";
+                var areaName = "";
+                var roadName = "";
+                var addrName = "";
+                $.each($("input[name=takeradio]:checked"), function () {
+                    // console.log($(this).val());
+                    rad_take = $(this).val();
+                    if ($(this).val() == "宅配") {
+                        // console.log($("#cityName").val() + $("#areaName").val() + $("#roadName").val() + $("#addrName").val());
+                        Addr = $("#cityName").val() + $("#areaName").val() + $("#roadName").val() + $("#addrName").val();
+                        var cityName = $("#cityName").val();
+                        var areaName = $("#areaName").val();
+                        var roadName = $("#roadName").val();
+                        var addrName = $("#addrName").val();
+                    } else {
+                        Addr = "無";
+                        var cityName = "無";
+                        var areaName = "無";
+                        var roadName = "無";
+                        var addrName = "無";
+                    }
+                });
+
+                if (MemberData == "") {
+                    alert("尚未登入，登入後即可購買");
+                } else if (orderTotal == 0) {
+                    alert("尚未選購商品");
+                } else if ($("#orderDate").val() == "") {
+                    alert("尚未填寫取件時間");
+                } else if (rad_pay == "") {
+                    alert("尚未填寫付款方式");
+                } else if (rad_take == "") {
+                    alert("尚未填寫取件方式");
+                } else {
+                    // 生成訂單號碼 ---------------------------------------- start
+                    // 生成當前時間戳記
+                    const timestamp = Date.now();
+                    // 生成隨機數
+                    const random = Math.floor(Math.random() * 10000);
+                    // 將時間戳記和隨機數组合在一起
+                    orderNumber = "T" + timestamp + random; //訂購單號
+                    // 生成訂單號碼 ---------------------------------------- end
+
+
+                    var Now = "已收到訂購資訊";
+                    var dataJSON = {};
+                    dataJSON["User"] = MemberData[0].Account;
+                    dataJSON["orderDate"] = $("#orderDate").val();
+                    dataJSON["radPay"] = rad_pay;
+                    dataJSON["radTake"] = rad_take;
+                    dataJSON["Addr"] = Addr;
+                    dataJSON["Now"] = Now;
+                    dataJSON["OrderNumber"] = orderNumber;
+                    // console.log(dataJSON);
+                    // console.log(JSON.stringify(dataJSON));
+
+                    // console.log(mapShopcar);
+                    // const myMapArray = Array.from(mapShopcar);
+                    // console.log(myMapArray);
+                    // console.log(myMapArray[0][0]);
+                    // console.log(myMapArray[0][1]);
+                    // console.log(myMapArray[1][0]);
+                    // console.log(myMapArray[1][1]);
+
+                    //傳遞至後端
+                    $.ajax({
+                        type: "POST",
+                        url: "order-Create-api.php",
+                        data: JSON.stringify(dataJSON),
+                        dataType: "json",
+                        success: showdata_order_create,
+                        error: function () {
+                            alert("error-order-Create-api.php");
+                        }
+                    });
+                }
+
+
+
+                // if (MemberData != "") {
+                //     console.log("登入");
+                //     console.log(mapShopcar);
+                //     console.log($("#orderDate").val());
+                //     //收集radio 付款方法的資料
+                //     var rad_pay;//紀錄付款方式
+                //     $.each($("input[name=payradio]:checked"), function () {
+                //         console.log($(this).val());
+                //         rad_pay = $(this).val();
+                //     });
+                //     var rad_take;
+                //     var Addr;
+                //     $.each($("input[name=takeradio]:checked"), function () {
+                //         console.log($(this).val());
+                //         rad_take = $(this).val();
+                //         if ($(this).val() == "宅配") {
+                //             console.log($("#cityName").val() + $("#areaName").val() + $("#roadName").val() + $("#addrName").val());
+                //             Addr = $("#cityName").val() + $("#areaName").val() + $("#roadName").val() + $("#addrName").val();
+                //         } else {
+                //             Addr = "無";
+                //         }
+                //     });
+
+                //     // 生成訂單號碼 ---------------------------------------- start
+                //     // 生成當前時間戳記
+                //     const timestamp = Date.now();
+                //     // 生成隨機數
+                //     const random = Math.floor(Math.random() * 10000);
+                //     // 將時間戳記和隨機數组合在一起
+                //     orderNumber = "T" + timestamp + random; //訂購單號
+                //     // 生成訂單號碼 ---------------------------------------- end
+
+
+                //     var Now = "已收到訂購資訊";
+                //     var dataJSON = {};
+                //     dataJSON["User"] = MemberData[0].Account;
+                //     dataJSON["orderDate"] = $("#orderDate").val();
+                //     dataJSON["radPay"] = rad_pay;
+                //     dataJSON["radTake"] = rad_take;
+                //     dataJSON["Addr"] = Addr;
+                //     dataJSON["Now"] = Now;
+                //     dataJSON["OrderNumber"] = orderNumber;
+                //     console.log(dataJSON);
+                //     console.log(JSON.stringify(dataJSON));
+
+                //     // console.log(mapShopcar);
+                //     // const myMapArray = Array.from(mapShopcar);
+                //     // console.log(myMapArray);
+                //     // console.log(myMapArray[0][0]);
+                //     // console.log(myMapArray[0][1]);
+                //     // console.log(myMapArray[1][0]);
+                //     // console.log(myMapArray[1][1]);
+
+                //     //傳遞至後端
+                //     $.ajax({
+                //         type: "POST",
+                //         url: "order-Create-api.php",
+                //         data: JSON.stringify(dataJSON),
+                //         dataType: "json",
+                //         success: showdata_order_create,
+                //         error: function () {
+                //             alert("error-order-Create-api.php");
+                //         }
+                //     });
+                // } else {
+                //     console.log("未登入");
+                //     alert("尚未登入，登入後即可購買");
+                // }
+
+
+            });
+        });
+
+        // 取得購物車資料
+        function getShopcarData() {
+
+            // 從localStorage取得shopcar的資料
+            var getData = localStorage.getItem('shopcar');
+
+            if (getData != null) {
+                // 轉成陣列
+                var getDataArr = JSON.parse(getData);
+                // console.log(getDataArr);
+                // 加入購物車的map   
+                mapShopcar.clear();
+                getDataArr.forEach(function (item) {
+                    mapShopcar.set(item[0], item[1]);
+                });
+                // console.log("--getShopcarData--");
+                // console.log(mapShopcar);
+
+                var cnt = 1;
+                var subTotal;
+                $("#orderList").empty();
+                mapShopcar.forEach(function (item, key) {
+                    // console.log(key);
+                    // console.log(item);
+                    var dataP = mapProduct.get(key.toString());
+                    // console.log("--2nd--");
+                    // console.log(dataP);
+                    var subTotal = dataP.Price * item;
+                    var strHTML = '<tr><td id="orderId">' + cnt + '</td><td id="orderPname">' + dataP.Pname + '</td><td id="orderPrice">' + dataP.Price + '</td><td><div class="menus" id="menus" data-id="' + dataP.ID + '" data-price = "' + dataP.Price + '">-</div><input type="number" class="orderNum" id="orderNum" min="1" value="' + item + '" readonly="readonly"><div class="add" id="add" data-id="' + dataP.ID + '" data-price = "' + dataP.Price + '">+</div></td><td id="subTotal">' + subTotal + '</td><td id="orderDdelete"><button class="btn btn-danger" onclick="deleteShopCar(' + dataP.ID + ')">刪除</button></td></tr>';
+
+                    $("#orderList").append(strHTML);
+                    cnt++;
+                    orderTotal += subTotal;
+                });
+                var strHTML = '<tr><td></td><td></td><td></td><td></td><td id="orderTotal">總計：' + orderTotal + '</td><td></td></tr>';
+                $("#orderList").append(strHTML);
+            }
+
+        }
+
+        function showdata_pro(data) {
+            data.data.forEach(function (item) {
+                mapProduct.set(item.ID, item);
+            });
+            // console.log("--1st--");
+            // console.log(mapProduct);
+        }
+
+        //改變顯示購買數量
+        function setOrderNum(pno, num) {
+            mapShopcar.set(pno, num);
+            // 設定localStorage
+            // 將map轉成陣列
+            const myMapArray = Array.from(mapShopcar);
+
+            // 陣列轉成文字
+            const myMapString = JSON.stringify(myMapArray);
+
+            // 存文字進localStorage
+            localStorage.setItem('shopcar', myMapString);
+        }
+
+        //從購物車中刪除商品
+        function deleteShopCar(pno) {
+            mapShopcar.delete(pno);
+            // 設定localStorage
+            // 將map轉成陣列
+            const myMapArray = Array.from(mapShopcar);
+
+            // 陣列轉成文字
+            const myMapString = JSON.stringify(myMapArray);
+
+            // 存文字進localStorage
+            localStorage.setItem('shopcar', myMapString);
+            location.href = "front-shoppingcart.html";
+        }
+
+        function showdata_order_create(data) {
+            // console.log(data);
+            if (data.state) {
+                const myMapArray = Array.from(mapShopcar);
+                myMapArray.forEach(function (item) {
+                    // console.log(item);
+                    // console.log(item[0]);
+                    // console.log(item[1]);
+                    var dataJSON = {};
+                    dataJSON["OrderNumber"] = orderNumber;
+                    dataJSON["mapShopcarProId"] = item[0];
+                    dataJSON["mapShopcarOrderNum"] = item[1];
+                    // console.log(dataJSON);
+                    //傳遞至後端
+                    $.ajax({
+                        type: "POST",
+                        url: "orderList-Creat-api.php",
+                        data: JSON.stringify(dataJSON),
+                        dataType: "json",
+                        success: showdata_orderList_create,
+                        error: function () {
+                            alert("error-orderList-Creat-api.php");
+                        }
+                    });
+                });
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_orderList_create(data) {
+            // console.log(data);
+            localStorage.removeItem('shopcar');
+            if (data.state) {
+                // alert(data.message);
+                Swal.fire({
+                    title: "訂購成功",
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: "確認",
+                    denyButtonText: `Don't save`
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire("Saved!", "", "success");
+                        location.href = "front-product.html";
+                    } else if (result.isDenied) {
+                        Swal.fire("Changes are not saved", "", "info");
+                    }
+                });
+
+            } else {
+                alert(data.message);
+            }
+        }
+    </script>
+</body>
+
+</html>

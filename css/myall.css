@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+:root{
+    --mycolor01:#E3A6A1;
+    --mycolor02:#BC5F6A;
+    --mycolor03:#19B3B1;
+    --mycolor04:#034B61;
+    --mycolor05:#CCD3D9;
+    --mycolor06:#FED5D9;
+    --mycolor07:#A6C2CE;
+    --mycolor08:#9C8F96;
+    --mycolor09:#85B8CB;
+    --mycolor10:#D1DDDB;
+    --mycolor11:#E5EDF8;
+    --mycolor12:#EB8F90;
+    --mycolor13:#FFB471;
+    --mycolor14:#ADBED2;
+    --mycolor15:#FDDCEF;
+    --mycolor16:#D5C5E9;
+    --mycolor17:#3A5A69;
+    --mycolor18:#030923;
+    --mycolor19:#12406A;
+    --mycolor20:rgba(0, 0 ,0 , .1);
+    --mycolor21:#E0E3E4;
+    --mycolor22:rgba(0, 0 ,0 , .2);
+}
+
+
+
+body{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.fw-900{
+    font-weight: 900;
+}
+.fw-800{
+    font-weight: 800;
+}
+.fw-700{
+    font-weight: 700;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-400{
+    font-weight: 400;
+}
+.fw-300{
+    font-weight: 300;
+}
+.fw-200{
+    font-weight: 200;
+}
+.fw-100{
+    font-weight: 100;
+}
+
+.do16{
+    font-family: 'DotGothic16', sans-serif;
+}
+
+.bg-cover{
+    background-position: center center;
+    background-size: cover;
+}
+
+.demo {
+    width: 70%;
+    padding: 25px;
+    margin: 25px;
+    border: 2px solid var(--mycolor05);
+}

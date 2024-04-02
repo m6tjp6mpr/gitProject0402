@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品瀏覽</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/myall.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">首頁</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="front-home.html">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="front-product.html">商品</a>
+                        </li>
+                        <li class="nav-item dropdown d-none" id="manager_btn">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                管理功能
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="admin-memberList.html">會員瀏覽</a></li>
+                                <li><a class="dropdown-item" href="#">商品瀏覽</a></li>
+                                <!-- <li>
+                                        <hr class="dropdown-divider">
+                                    </li> -->
+                                <li><a class="dropdown-item" href="admin-allorderList.html">訂單瀏覽</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li class="nav-item">
+                                <a class="nav-link disabled">Disabled</a>
+                            </li> -->
+                    </ul>
+                    <div>
+                        <span class="text-warning h3" id="user_message"></span>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal"
+                            id="meun_login_btn">登入</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal"
+                            id="meun_reg_btn">註冊</button>
+                        <button class="d-none btn btn-danger" id="logout_btn">登出</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3" style="background-color: aqua;">
+                    <ul class="list-group" id="hotelname">
+                        <li class="list-group-item">
+                            <div class="d-flex">
+                                <h5>台北市大同區</h5>
+                                <span class="badge text-bg-success ms-auto">99</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-9"> -->
+                    <!-- 新增按鈕 -->
+                    <!-- <div class="container mt-3">
+                        <button class="btn btn-primary" id="insert_btn" data-bs-toggle="modal"
+                            data-bs-target="#insertModal">新增商品</button>
+                    </div> -->
+
+                    <!-- 商品列表 -->
+                    <!-- <section style="height: 800px;">
+                        <div class="container mt-3">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th width="10%">商品編號</th>
+                                        <th width="20%">商品名稱</th>
+                                        <th width="10%">商品數量</th>
+                                        <th width="10%">商品價格</th>
+                                        <th width="25%">商品介紹</th>
+                                        <th width="10%">建立時間</th>
+                                        <th width="15%">更新/刪除</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mydata">
+                                    <tr>
+                                        <td>商品編號</td>
+                                        <td>商品名稱</td>
+                                        <td>商品數量</td>
+                                        <td>商品價格</td>
+                                        <td>商品介紹</td>
+                                        <td>建立時間</td>
+                                        <td>
+                                            <button class="btn btn-success" id="updata_btn" data-bs-toggle="modal"
+                                                data-bs-target="#updataModal">更新</button>
+                                            <button class="btn btn-danger">刪除</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- 新增按鈕 -->
+    <div class="container mt-3">
+        <button class="btn btn-primary" id="insert_btn" data-bs-toggle="modal"
+            data-bs-target="#insertModal">新增商品</button>
+    </div>
+
+    <!-- 商品列表 -->
+    <section>
+        <div class="container mt-3">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th width="10%">商品編號</th>
+                        <th width="20%">商品名稱</th>
+                        <th width="10%">商品數量</th>
+                        <th width="10%">商品價格</th>
+                        <th width="25%">商品介紹</th>
+                        <th width="10%">建立時間</th>
+                        <th width="15%">更新/刪除</th>
+                    </tr>
+                </thead>
+                <tbody id="mydata">
+                    <tr>
+                        <td>商品編號</td>
+                        <td>商品名稱</td>
+                        <td>商品數量</td>
+                        <td>商品價格</td>
+                        <td>商品介紹</td>
+                        <td>建立時間</td>
+                        <td>
+                            <button class="btn btn-success" id="updata_btn" data-bs-toggle="modal"
+                                data-bs-target="#updataModal">更新</button>
+                            <button class="btn btn-danger">刪除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- 分頁 -->
+    <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center" id="pageList">
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#" onclick="drawTable(0)">1</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- updataModal -->
+    <div class="modal fade" id="updataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">商品資訊更新</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="updataModal_pname" class="form-label">名稱</label>
+                        <input type="text" id="updataModal_pname" name="updataModal_pname" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updataModal_num" class="form-label">數量</label>
+                        <input type="text" id="updataModal_num" name="updataModal_num" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updataModal_price" class="form-label">價格</label>
+                        <input type="text" id="updataModal_price" name="updataModal_price" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updataModal_type" class="form-label">種類</label>
+                        <input type="text" id="updataModal_type" name="updataModal_type" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updataModal_intro" class="form-label">介紹</label>
+                        <input type="text" id="updataModal_intro" name="updataModal_intro" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updataModal_photo" class="form-label">圖片檔案上傳</label>
+                        <input type="file" name="updataModal_photo" id="updataModal_photo" class="form-control">
+                        <img src="#" alt="" class="w-50 mt-3" id="updataModal_photo_prevImg">
+                        <input type="hidden" name="updataModal_photo_hidden" id="updataModal_photo_hidden"
+                            class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <div>是否顯示於首頁</div>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" name="updataModal_home"
+                                id="updataModal_home">
+                            <label for="updataModal_home" class="form-check-label">不顯示於首頁</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>是否開始販賣</div>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" name="updataModal_sell"
+                                id="updataModal_sell">
+                            <label for="updataModal_sell" class="form-check-label">尚未開始販售</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="updataModal_btn">儲存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- insertModal -->
+    <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">新增商品</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="insertModal_pname" class="form-label">名稱</label>
+                        <input type="text" id="insertModal_pname" name="insertModal_pname" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="insertModal_num" class="form-label">數量</label>
+                        <input type="text" id="insertModal_num" name="insertModal_num" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="insertModal_price" class="form-label">價格</label>
+                        <input type="text" id="insertModal_price" name="insertModal_price" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="insertModal_type" class="form-label">種類</label>
+                        <input type="text" id="insertModal_type" name="insertModal_type" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="insertModal_intro" class="form-label">介紹</label>
+                        <input type="text" id="insertModal_intro" name="insertModal_intro" class="form-control">
+                        <div class="valid-feedback">字數可</div>
+                        <div class="invalid-feedback">字數不可</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="insertModal_photo" class="form-label">圖片檔案上傳</label>
+                        <input type="file" name="insertModal_photo" id="insertModal_photo" class="form-control">
+                        <img src="#" alt="" class="w-50 mt-3 d-none" id="prevImg">
+                    </div>
+                    <div class="mb-3">
+                        <div>是否顯示於首頁</div>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" name="insertModal_home"
+                                id="insertModal_home">
+                            <label for="insertModal_home" class="form-check-label">不顯示於首頁</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>是否開始販賣</div>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" name="insertModal_sell"
+                                id="insertModal_sell">
+                            <label for="insertModal_sell" class="form-check-label">尚未開始販售</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="insertModal_btn">儲存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- jquery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        var flag_pname = false;
+        var flag_price = false;
+        var flag_num = false;
+        var flag_type = false;
+        var flag_intro = false;
+        var flag_upload = false;
+        var insert_home = 'N';
+        var insert_sell = 'N';
+        //updata用
+        var u_id; //updata id
+        var updata_flag_upload = false;
+        var updata_home;
+        var updata_sell;
+
+        var newData = []; //複數程式要用，所以設成公有變數
+        $(function () {
+            //判斷是否登入
+            if (getCookie("UID01") != "" && getCookie("UID02") != "") {
+                //UID01存在，傳至後端api判斷是否正確
+                var dataJSON = {};
+                dataJSON["UID01"] = getCookie("UID01");
+                dataJSON["UID02"] = getCookie("UID02");
+                // console.log(JSON.stringify(dataJSON));
+                $.ajax({
+                    type: "POST",
+                    url: "member-ControllerLogin-api.php",
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    success: showdata_Check_UID,
+                    error: function () {
+                        alert("error-member-ControllerLogin-api.php");
+                    }
+                });
+            } else {
+                location.href = "front-home.html";
+            }
+
+            //監聽登出按鈕
+            $("#logout_btn").click(function () {
+                setCookie("UID01", "", 7);
+                setCookie("UID02", "", 7);
+                location.href = "front-home.html";
+            });
+
+
+            $.ajax({
+                type: "GET",
+                url: "productList-Read-api.php",
+                async: false,
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    alert("error-memberList-Read-api.php");
+                }
+            });
+
+            //即時監聽 insertModal_pname
+            $("#insertModal_pname").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+                if ($(this).val().length > 0 && $(this).val().length < 11) {
+                    //字數合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pname = true;
+                } else {
+                    //字數不合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pname = false;
+                }
+            });
+
+            //即時監聽 insertModal_price
+            $("#insertModal_price").bind("input propertychande", function () {
+                if ($(this).val() >= 0 && $(this).val() < 1001 && $(this).val() !== "") {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_price = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_price = false;
+                }
+            });
+
+            //即時監聽 insertModal_num
+            $("#insertModal_num").bind("input propertychande", function () {
+                if ($(this).val() >= 0 && $(this).val() < 1001 && $(this).val() !== "") {
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_num = true;
+                } else {
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_num = false;
+                }
+            });
+
+            //即時監聽 insertModal_type
+            $("#insertModal_type").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+                if ($(this).val().length > 0 && $(this).val().length < 11) {
+                    //字數合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_type = true;
+                } else {
+                    //字數不合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_type = false;
+                }
+            });
+
+            //即時監聽 insertModal_intro
+            $("#insertModal_intro").bind("input propertychange", function () {
+                // console.log($(this).val().length);
+                if ($(this).val().length > 0 && $(this).val().length < 129) {
+                    //字數合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_intro = true;
+                } else {
+                    //字數不合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_intro = false;
+                }
+            });
+
+            //監聽 insertModal_photo
+            $("#insertModal_photo").change(function () {
+                // console.log(insertModal_photo);
+                // console.log(insertModal_photo.files[0]);
+                // console.log(insertModal_photo.files[0].name);
+                // console.log(insertModal_photo.files[0].size);
+                // console.log(insertModal_photo.files[0].type);
+                //圖片於瀏覽器的暫存路徑
+                // console.log(URL.createObjectURL(insertModal_photo.files[0]));
+
+                if (insertModal_photo.files[0].type == "image/jpeg") {
+                    $("#prevImg").removeClass("d-none");
+                    $("#prevImg").attr("src", URL.createObjectURL(insertModal_photo.files[0]));
+                    flag_upload = true;
+                } else {
+                    // console.log("圖片格式不符合");
+                    flag_upload = false;
+                }
+            });
+
+            //即時監聽 insertModal_home
+            $("#insertModal_home").change(function () {
+                // console.log($(this).is(':checked'));
+                if ($(this).is(':checked')) {
+                    $(this).next().text('顯示於首頁');
+                    insert_home = 'Y';
+                } else {
+                    $(this).next().text('不顯示於首頁');
+                    insert_home = 'N';
+                }
+            });
+
+            //即時監聽 insertModal_sell
+            $("#insertModal_sell").change(function () {
+                // console.log($(this).is(':checked'));
+                if ($(this).is(':checked')) {
+                    $(this).next().text('開始販售');
+                    insert_sell = 'Y';
+                } else {
+                    $(this).next().text('尚未開始販售');
+                    insert_sell = 'N';
+                }
+            });
+
+            //監聽 insertModal_btn
+            $("#insertModal_btn").click(function () {
+                if (flag_upload) {
+                    var formdata = new FormData();
+                    formdata.append("file", insertModal_photo.files[0]);
+                    // console.log(formdata);
+                    //傳遞formdata至後端api
+                    $.ajax({
+                        type: "POST",
+                        url: "productList-photoupload-api.php",
+                        data: formdata,
+                        dataType: "json",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: showdata_photo,
+                        error: function () {
+                            alert("error-productList-photoupload-api.php");
+                        }
+                    });
+                } else {
+                    alert("請先選取上傳圖片");
+                }
+            });
+
+
+            //監聽 updata_btn
+            // $("#mydata #updata_btn").click(function () {
+            $("body").on("click", "#mydata #updata_btn", function () {
+                // console.log("update_btn_OK");
+                // console.log($(this).data("id"));
+                // console.log($(this).data("pname"));
+                // console.log($(this).data("price"));
+
+                u_id = $(this).data("id");
+                $("#updataModal_pname").val($(this).data("pname"));
+                $("#updataModal_num").val($(this).data("num"));
+                $("#updataModal_price").val($(this).data("price"));
+                $("#updataModal_type").val($(this).data("type"));
+                $("#updataModal_intro").val($(this).data("intro"));
+                $("#updataModal_photo_hidden").val($(this).data("photo"));
+                $("#updataModal_home").val($(this).data("home"));
+                updata_home = $(this).data("home");
+                $("#updataModal_sell").val($(this).data("sell"));
+                updata_sell = $(this).data("sell");
+
+                $("#updataModal_photo_prevImg").attr("src", $(this).data("photo"));
+
+                // console.log($("#updataModal_home").val());
+
+                if ($("#updataModal_home").val() == "Y") {
+                    $("#updataModal_home").prop('checked', true)
+                    $("#updataModal_home").next().text("顯示於首頁")
+                } else {
+                    $("#updataModal_home").prop('checked', false)
+                    $("#updataModal_home").next().text("不顯示於首頁")
+                }
+
+                if ($("#updataModal_sell").val() == "Y") {
+                    $("#updataModal_sell").prop('checked', true)
+                    $("#updataModal_sell").next().text("開始販售")
+                } else {
+                    $("#updataModal_sell").prop('checked', false)
+                    $("#updataModal_sell").next().text("尚未開始販售")
+                }
+            });
+
+            //監聽 updataModal_photo
+            $("#updataModal_photo").change(function () {
+                // console.log(updataModal_photo);
+                // console.log(updataModal_photo.files[0]);
+                // console.log(updataModal_photo.files[0].name);
+                // console.log(updataModal_photo.files[0].size);
+                // console.log(updataModal_photo.files[0].type);
+                //圖片於瀏覽器的暫存路徑
+                // console.log(URL.createObjectURL(updataModal_photo.files[0]));
+
+                if (updataModal_photo.files[0].type == "image/jpeg") {
+                    // $("#updataModal_photo_prevImg").removeClass("d-none");
+                    $("#updataModal_photo_prevImg").removeAttr("scr");
+                    $("#updataModal_photo_prevImg").attr("src", URL.createObjectURL(updataModal_photo.files[0]));
+                    updata_flag_upload = true;
+                } else {
+                    // console.log("圖片格式不符合");
+                    updata_flag_upload = false;
+                }
+            });
+
+            //即時監聽 updataModal_home
+            $("#updataModal_home").change(function () {
+                // console.log($(this).is(':checked'));
+                if ($(this).is(':checked')) {
+                    $(this).next().text('顯示於首頁');
+                    updata_home = 'Y';
+                } else {
+                    $(this).next().text('不顯示於首頁');
+                    updata_home = 'N';
+                }
+            });
+
+            //即時監聽 updataModal_sell
+            $("#updataModal_sell").change(function () {
+                // console.log($(this).is(':checked'));
+                if ($(this).is(':checked')) {
+                    $(this).next().text('開始販售');
+                    updata_sell = 'Y';
+                } else {
+                    $(this).next().text('尚未開始販售');
+                    updata_sell = 'N';
+                }
+            });
+
+            //監聽 updataModal_btn
+            $("#updataModal_btn").click(function () {
+                if (updata_flag_upload) {
+                    // console.log("圖片更新判定成功");
+                    var formdata = new FormData();
+                    formdata.append("file", updataModal_photo.files[0]);
+                    // console.log(formdata);
+                    //傳遞formdata至後端api
+                    $.ajax({
+                        type: "POST",
+                        url: "productList-photoupload-api.php",
+                        data: formdata,
+                        dataType: "json",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: showdata_photo_updata,
+                        error: function () {
+                            alert("error-productList-photoupload-api.php");
+                        }
+                    });
+
+                } else {
+                    // console.log("圖片未更新判定成功");
+
+                    //產生json格式的參數
+                    var dataJSON = {};
+                    dataJSON["ID"] = u_id;
+                    dataJSON["Pname"] = $("#updataModal_pname").val();
+                    dataJSON["Price"] = $("#updataModal_price").val();
+                    dataJSON["Num"] = $("#updataModal_num").val();
+                    dataJSON["Type"] = $("#updataModal_type").val();
+                    dataJSON["Intro"] = $("#updataModal_intro").val();
+                    dataJSON["Photo"] = $("#updataModal_photo_hidden").val();
+                    dataJSON["Home"] = updata_home;
+                    dataJSON["Sell"] = updata_sell;
+                    // console.log(JSON.stringify(dataJSON));
+
+                    //傳遞參數置後端
+                    $.ajax({
+                        type: "POST",
+                        url: "productList-Updata-api.php",
+                        data: JSON.stringify(dataJSON),
+                        dataType: "json",
+                        success: showdata_updata_2,
+                        error: function () {
+                            alert("error-productList-Updata-api.php");
+                        }
+                    });
+                }
+            });
+
+            //監聽 delete_btn
+            $("#mydata #delete_btn").click(function () {
+                if (confirm("確定刪除嗎?")) {
+                    // console.log($(this).data("id"));
+                    //產生json格式的參數
+                    var dataJSON = {};
+                    dataJSON["ID"] = $(this).data("id");
+                    // console.log(JSON.stringify(dataJSON));
+
+                    //傳遞參數置後端
+                    $.ajax({
+                        type: "POST",
+                        url: "productList-Delete-api.php",
+                        data: JSON.stringify(dataJSON),
+                        dataType: "json",
+                        success: showdata_delete,
+                        error: function () {
+                            alert("error-productList-Delete-api.php");
+                        }
+                    });
+                }
+            });
+
+
+        });
+
+        function showdata_Check_UID(data) {
+            // console.log(data);
+            if (data.state) {
+                //驗證成功
+                $("#user_message").text(data.data[0].Username + "登入中");
+                $("#meun_login_btn").addClass("d-none");
+                $("#meun_reg_btn").addClass("d-none");
+
+                //顯示登出鈕
+                $("#logout_btn").removeClass("d-none");
+
+                //顯示管理按鈕
+                $("#manager_btn").removeClass("d-none");
+            } else {
+                location.href = "front-home.html";
+            }
+        }
+
+        // function showdata(data) {
+        //     console.log(data);
+
+        //     $("#mydata").empty();
+        //     data.data.forEach(function (item) {
+        //         console.log(item.Pname);
+        //         var strHTML = '<tr><td>' + item.ID + '</td><td>' + item.Pname + '</td><td>' + item.Num + '</td><td>' + item.Price + '</td><td>' + item.Intro + '</td><td>' + item.Created_at + '</td><td><button class="btn btn-success" id="updata_btn" data-bs-toggle="modal"data-bs-target="#updataModal" data-id="' + item.ID + '" data-pname="' + item.Pname + '" data-num="' + item.Num + '" data-price="' + item.Price + '" data-type="' + item.Type + '" data-intro="' + item.Intro + '" data-photo="' + item.Photo + '" data-home="' + item.Home + '" data-sell="' + item.Sell + '" >更新</button><button class="btn btn-danger" id="delete_btn" data-id="' + item.ID + '">刪除</button></td></tr>'
+        //         $("#mydata").append(strHTML);
+        //     });
+        // }
+
+        function showdata(data) {
+            //整理資料儲存為二維陣列
+
+            data.data.forEach(function (item, key) {
+                // console.log(key);
+                if (key % 3 == 0) {
+                    newData.push([]);
+                }
+                var page = parseInt(key / 3);
+                newData[page].push(item);
+            });
+            drawTable(0);
+
+            //產生頁碼
+            $("#pageList").empty();
+
+            //前一頁
+            var strHTML = '<li class="page-item disabled" id="beforepageforuse"><a class="page-link" href="#" id="beforepage"> << </a></li>';
+            $("#pageList").append(strHTML);
+
+            //中間頁碼
+            newData.forEach(function (item, key) {
+                var thisPage = key + 1;
+                var strHTML = '<li class="page-item"><a class="page-link" href="#" onclick="drawTable(' + key + ')">' + thisPage + '</a></li>';
+                $("#pageList").append(strHTML);
+            });
+
+            //下一頁
+            var strHTML = '<li class="page-item" id="nextpageforuse"><a class="page-link" href="#" href="#" onclick="drawTable(1)" id="nextpage"> >> </a></li>';
+            $("#pageList").append(strHTML);
+
+            // console.log(newData);
+            // console.log(newData.length);
+
+        }
+
+        function drawTable(page) {
+            $("#mydata").empty();
+            newData[page].forEach(function (item) {
+                var strHTML = '<tr><td>' + item.ID + '</td><td>' + item.Pname + '</td><td>' + item.Num + '</td><td>' + item.Price + '</td><td>' + item.Intro + '</td><td>' + item.Created_at + '</td><td><button class="btn btn-success" id="updata_btn" data-bs-toggle="modal"data-bs-target="#updataModal" data-id="' + item.ID + '" data-pname="' + item.Pname + '" data-num="' + item.Num + '" data-price="' + item.Price + '" data-type="' + item.Type + '" data-intro="' + item.Intro + '" data-photo="' + item.Photo + '" data-home="' + item.Home + '" data-sell="' + item.Sell + '" >更新</button><button class="btn btn-danger" id="delete_btn" data-id="' + item.ID + '">刪除</button></td></tr>';
+                $("#mydata").append(strHTML);
+
+
+            });
+
+            //控制前一頁按鈕
+            if (page == 0) {
+                $("#beforepageforuse").addClass("disabled");
+            } else {
+                $("#beforepageforuse").removeClass("disabled");
+                $("#beforepage").removeAttr('onclick');
+                var beforenewpage = page - 1;
+                $("#beforepage").attr('onclick', 'drawTable(' + beforenewpage + ')');
+            }
+            // $("#beforepage").removeAttr('onclick');
+            // var beforenewpage = page - 1;
+            // $("#beforepage").attr('onclick', 'drawTable(' + beforenewpage + ')');
+
+            //控制後一頁按鈕
+            if ((page + 1) == newData.length) {
+                $("#nextpageforuse").addClass("disabled");
+            } else {
+                $("#nextpageforuse").removeClass("disabled");
+                $("#nextpage").removeAttr('onclick');
+                var nextnewpage = page + 1;
+                $("#nextpage").attr('onclick', 'drawTable(' + nextnewpage + ')');
+            }
+            // $("#nextpage").removeAttr('onclick');
+            // var nextnewpage = page + 1;
+            // $("#nextpage").attr('onclick', 'drawTable(' + nextnewpage + ')');
+        }
+
+
+
+
+        function showdata_photo(data) {
+            // console.log(data);
+
+            if (flag_pname && flag_price && flag_num && flag_type && flag_intro) {
+                // console.log($("#pname").val());
+                // console.log($("#price").val());
+
+                //將傳遞至後端api參數 轉換成json格式
+                //{"Pname":"奶茶", "Price":"50", "Sugar":"全糖", "Num":"10", "Delivery":"true", "Added":"不要", "Pay":"現金", "Total":"500"}
+
+                var dataJSON = {};
+                dataJSON["Pname"] = $("#insertModal_pname").val();
+                dataJSON["Price"] = $("#insertModal_price").val();
+                dataJSON["Num"] = $("#insertModal_num").val();
+                dataJSON["Type"] = $("#insertModal_type").val();
+                dataJSON["Intro"] = $("#insertModal_intro").val();
+                dataJSON["Photo"] = data.datainfo.serverfilename;
+                dataJSON["Home"] = insert_home;
+                dataJSON["Sell"] = insert_sell;
+
+                // console.log(JSON.stringify(dataJSON));
+
+                //傳至後端
+                $.ajax({
+                    type: "POST",
+                    url: "productList-Create-api.php",
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    success: showdata_insert,
+                    error: function () {
+                        alert("error-productList-Create-api.php");
+                    }
+                });
+
+            } else {
+                alert("輸入錯誤");
+            }
+        }
+
+        function showdata_insert(data) {
+            // console.log(data);
+            if (data.state) {
+                // alert(data.message);
+                Swal.fire({
+                    title: "新增成功",
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: "確認",
+                    denyButtonText: `Don't save`
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire("Saved!", "", "success");
+                        location.href = "admin-productList.html";
+                    } else if (result.isDenied) {
+                        Swal.fire("Changes are not saved", "", "info");
+                    }
+                });
+
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_photo_updata(data) {
+            // console.log(data);
+
+            //產生json格式的參數
+            var dataJSON = {};
+            dataJSON["ID"] = u_id;
+            dataJSON["Pname"] = $("#updataModal_pname").val();
+            dataJSON["Price"] = $("#updataModal_price").val();
+            dataJSON["Num"] = $("#updataModal_num").val();
+            dataJSON["Type"] = $("#updataModal_type").val();
+            dataJSON["Intro"] = $("#updataModal_intro").val();
+            dataJSON["Photo"] = data.datainfo.serverfilename;
+            dataJSON["Home"] = updata_home;
+            dataJSON["Sell"] = updata_sell;
+            // console.log(JSON.stringify(dataJSON));
+
+            //傳遞參數置後端
+            $.ajax({
+                type: "POST",
+                url: "productList-Updata-api.php",
+                data: JSON.stringify(dataJSON),
+                dataType: "json",
+                success: showdata_updata,
+                error: function () {
+                    alert("error-productList-Updata-api.php");
+                }
+            });
+        }
+
+        function showdata_updata(data) {
+            // console.log(data);
+            // console.log("圖片與內容更新成功");
+            if (data.state) {
+                // alert(data.message);
+                Swal.fire({
+                    title: "圖片與內容更新成功",
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: "確認",
+                    denyButtonText: `Don't save`
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire("Saved!", "", "success");
+                        location.href = "admin-productList.html";
+                    } else if (result.isDenied) {
+                        Swal.fire("Changes are not saved", "", "info");
+                    }
+                });
+
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_updata_2(data) {
+            // console.log(data);
+            // console.log("內容更新成功");
+            if (data.state) {
+                // alert(data.message);
+                Swal.fire({
+                    title: "內容更新成功",
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: "確認",
+                    denyButtonText: `Don't save`
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire("Saved!", "", "success");
+                        location.href = "admin-productList.html";
+                    } else if (result.isDenied) {
+                        Swal.fire("Changes are not saved", "", "info");
+                    }
+                });
+
+            } else {
+                alert(data.message);
+            }
+        }
+
+        function showdata_delete(data) {
+            // console.log(data);
+            if (data.state) {
+                alert(data.message);
+                location.href = "admin-productList.html";
+            } else {
+                alert(data.message);
+            }
+        }
+
+        //w3c
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+
+</html>

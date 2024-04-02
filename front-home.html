@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraus</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- slick -->
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .slick-slide {
+            transform: scale(0.8);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .slick-center {
+            transform: scale(1.1);
+        }
+
+        .slick-next:before {
+            content: '>>';
+            opacity: 1;
+        }
+
+        .slick-prev:before {
+            content: '<<';
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body style="background-color: #ddebed;">
+    <!-- section01-navbar -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">首頁</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="front-product.html">商品</a>
+                        </li>
+                        <li class="nav-item dropdown d-none" id="manager_btn">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                管理功能
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="admin-memberList.html">會員瀏覽</a></li>
+                                <li><a class="dropdown-item" href="admin-productList.html">商品瀏覽</a></li>
+                                <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                                <li><a class="dropdown-item" href="admin-allorderList.html">訂單瀏覽</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li> -->
+                    </ul>
+                    <div>
+                        <a href="front-shoppingcart.html"><i class="fa-solid fa-cart-shopping fa-2x text-muted"></i></a>
+                        <span class="text-warning h3" id="user_message"></span>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal"
+                            id="meun_login_btn">登入</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal"
+                            id="meun_reg_btn">註冊</button>
+                        <button class="d-none btn btn-danger" id="logout_btn">登出</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- section01 loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-secondary ">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="login_account" name="login_account">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control" id="login_password" name="login_password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="login_btn">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section01 registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-bg-secondary ">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body registerbody">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>會員守則</h2>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <p>包括民族經過一年按照下載地址有什麼，為止凱文附件行政然後保持為止一種幹部那天在此事項大戰，一旦出去圍繞兄弟，忘記警告如何車輛，全家一副主體帶著感興趣。</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="chk01" name="chk01">
+                                <label class="form-check-label" for="chk01">
+                                    同意
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="" class="form-label">帳號</label>
+                                <input type="text" class="form-control" placeholder="帳號字數4-8" id="account"
+                                    name="account">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">名稱</label>
+                                <input type="text" class="form-control" placeholder="用戶名稱(2至10字)" id="username"
+                                    name="username">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">密碼</label>
+                                <input type="password" class="form-control" placeholder="密碼字數5-10" id="password"
+                                    name="password">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control" placeholder="確認密碼" id="re_password"
+                                    name="re_password">
+                                <div class="valid-feedback">同</div>
+                                <div class="invalid-feedback">不同</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="請填寫Email" id="email" name="email">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">電話</label>
+                                <input type="text" class="form-control" placeholder="用戶電話" id="phone" name="phone">
+                                <div class="valid-feedback">字數可</div>
+                                <div class="invalid-feedback">字數不可</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="reg_btn">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section02-banner -->
+    <section>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000"
+            data-bs-wrap="true">
+            <div class="carousel-inner" style="height: 50vh;">
+                <div class="carousel-item active bg-cover"
+                    style="background-image: url(images/index/Macaron.jpg); height: 50vh;">
+                </div>
+                <div class="carousel-item bg-cover"
+                    style="background-image: url(images/index/strawberrycream.jpg); height: 50vh;">
+                </div>
+                <div class="carousel-item bg-cover"
+                    style="background-image: url(images/index/bread.jpg); height: 50vh;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- section03-店家介紹 -->
+    <section style="position: relative;">
+        <div class="row">
+            <div class="col-6 bg-cover"
+                style="background-image: url(images/index/scene02.jpg);position: absolute; top: 0;bottom: 0;">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="height: 500px;">
+                <div class="col-md-6 offset-6 text-center my-auto">
+                    <h3>XXXXXXXXXXXXXX</h3>
+                    <h3>XXXXXXXXXXXXXX</h3>
+                    <h3>XXXXXXXXXXXXXX</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" style="height: 300px;">
+                <div class="text-center my-auto">
+                    <h3>XXXXXXXXXXXXXX</h3>
+                    <h3>XXXXXXXXXXXXXX</h3>
+                    <h3>XXXXXXXXXXXXXX</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="position: relative;">
+        <div class="container">
+            <div class="row" style="height: 500px;">
+                <div class="col-md-6 text-center my-auto">
+                    <h3>XXXXXXXXXXXXXXX</h3>
+                    <h3>XXXXXXXXXXXXXXX</h3>
+                    <h3>XXXXXXXXXXXXXXX</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-6 bg-cover"
+                style="background-image: url(images/index/berrymuffin.jpg);position: absolute;;bottom: 0;top: 0;right: 0;">
+            </div>
+        </div>
+    </section>
+
+    <!-- section04-產品介紹 -->
+    <section>
+        <h1 class="text-center my-3">產品介紹</h1>
+        <div class="container">
+            <div class="your-class my-3" style="background-color: var(--mycolor10);">
+                <!-- <div>
+                    <div class="bg-cover"
+                        style="background-image: url(images/index/strawberrycake.jpg); height: 300px;"></div>
+                </div>
+                <div>
+                    <div class="bg-cover" style="background-image: url(images/index/berrytart.jpg); height: 300px;">
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-cover" style="background-image: url(images/index/Crepe.jpg); height: 300px;">
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-cover"
+                        style="background-image: url(images/index/strawberrycake.jpg); height: 300px;"></div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- section05-最新消息 -->
+    <section>
+        <h1 class="text-center py-3">最新消息</h1>
+        <div class="container pb-4">
+            <div class="your-class2">
+                <div>
+                    <div class="card text-center mb-3">
+                        <img src="images/index/sale.jpg" class="card-img-top" style="height: 220px;">
+                        <h1>優惠活動</h1>
+                        <p>X月X日至X月X日</p>
+                        <p>滿200元打85折</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card text-center mb-3">
+                        <img src="images/index/sakabam.jpg" class="card-img-top" style="height: 220px;">
+                        <h1>合作消息</h1>
+                        <p>X月X日至X月X日</p>
+                        <p>薩卡班甲魚人魚公主聯名餐點</p>
+                        <p>每日限量10份</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card text-center mb-3">
+                        <img src="https://fakeimg.pl/1200x600/200" class="card-img-top" style="height: 220px;">
+                        <h1>新品上市</h1>
+                        <p>XXXX新品</p>
+                        <p>將於X月X日開賣</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card text-center mb-3">
+                        <img src="https://fakeimg.pl/1200x600/200" class="card-img-top" style="height: 220px;">
+                        <h1>優惠活動</h1>
+                        <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section06-徵人啟事 -->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 bg-cover opacity-50 py-5" style="background-image: url(images/index/scene.jpg);">
+                    <div class="row">
+                        <div class="col-md-9 p-5 rounded-3 ms-4" style="background-color: var(--mycolor22);">
+                            <small class="text-bg-light badge mb-3">招募 雜魚</small>
+                            <h2 class="text-white fw-600">歡迎加入</h2>
+                            <p class="text-white">
+                                自然顏色儀器身邊，除了熱點學會基隆避免明白矛盾進口位元有可能靈魂，當你誘惑跟我玄幻好評施工商務房子，最大品質出去大型一套代表處於，禁止傷心研究生滑鼠有什麼地圖，造成知名臺中微軟我也，網路把你，讓我記。
+                            </p>
+                            <a href="#" class="btn btn-outline-info">詳細</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 bg-cover opacity-50 py-5" style="background-image: url(images/index/scene.jpg);">
+                    <div class="row">
+                        <div class="col-md-9 p-5 rounded-3 ms-4" style="background-color: var(--mycolor22);">
+                            <small class="text-bg-light badge mb-3">招募 雜魚</small>
+                            <h2 class="text-white fw-600">歡迎加入</h2>
+                            <p class="text-white">
+                                自然顏色儀器身邊，除了熱點學會基隆避免明白矛盾進口位元有可能靈魂，當你誘惑跟我玄幻好評施工商務房子，最大品質出去大型一套代表處於，禁止傷心研究生滑鼠有什麼地圖，造成知名臺中微軟我也，網路把你，讓我記。
+                            </p>
+                            <a href="#" class="btn btn-outline-info">詳細</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- jquery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- slick -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <!-- 登入 -->
+    <script src="js/front-login.js"></script>
+    <!-- 登出 -->
+    <script src="js/logout.js"></script>
+    <!-- 註冊 -->
+    <script src="js/front-register.js"></script>
+    <script>
+        //slick-產品照片
+        $('.your-class').slick({
+            infinite: true,
+            slidesToShow: 3,
+            // slidesToScroll: 3
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '0px',
+                        slidesToShow: 1
+                    }
+                },
+            ]
+        });
+
+        //slick-最新消息
+        $('.your-class2').slick({
+            centerMode: true,
+            centerPadding: '0px',
+            slidesToShow: 3,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '0px',
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '0px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+        $(function () {
+
+            //讀取產品資料
+            $.ajax({
+                type: "GET",
+                url: "front-homepro-Read-api.php",
+                dataType: "json",
+                success: showdata_product_home,
+                error: function () {
+                    alert("error-front-homepro-Read-api.php");
+                }
+            });
+
+
+        });
+
+        //添加產品圖片至slick
+        function showdata_product_home(data) {
+            // console.log(data);
+            data.data.forEach(function (item) {
+                $('.your-class').slick('slickAdd', '<div><div class="bg-cover"style="background-image: url(' + item.Photo + '); height: 300px;"></div></div>');
+            });
+
+        }
+
+    </script>
+</body>
+
+</html>
