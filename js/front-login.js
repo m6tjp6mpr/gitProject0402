@@ -49,7 +49,24 @@ function showdata_login(data) {
     MemberData = data.data;
     // console.log(MemberData);
     if (data.state) {
-        alert(data.message);
+        // alert(data.message);
+        Swal.fire({
+            title: "登入成功",
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: "確認",
+            denyButtonText: `Don't save`
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                // Swal.fire("Saved!", "", "success");
+                location.href = "#";
+            } else if (result.isDenied) {
+                Swal.fire("Changes are not saved", "", "info");
+            }
+        });
+
+
         $("#loginModal").modal("hide");
         $("#user_message").text(data.data.Username + "登入中");
         $("#meun_login_btn").addClass("d-none");

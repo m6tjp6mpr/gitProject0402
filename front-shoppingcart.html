@@ -504,15 +504,90 @@
                 });
 
                 if (MemberData == "") {
-                    alert("尚未登入，登入後即可購買");
+                    // alert("尚未登入，登入後即可購買");
+                    Swal.fire({
+                        title: "尚未登入，登入後即可購買",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: "確認",
+                        denyButtonText: `Don't save`
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            // Swal.fire("Saved!", "", "success");
+                            location.href = "#";
+                        } else if (result.isDenied) {
+                            Swal.fire("Changes are not saved", "", "info");
+                        }
+                    });
                 } else if (orderTotal == 0) {
-                    alert("尚未選購商品");
+                    // alert("尚未選購商品");
+                    Swal.fire({
+                        title: "尚未選購商品",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: "確認",
+                        denyButtonText: `Don't save`
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            // Swal.fire("Saved!", "", "success");
+                            location.href = "#";
+                        } else if (result.isDenied) {
+                            Swal.fire("Changes are not saved", "", "info");
+                        }
+                    });
                 } else if ($("#orderDate").val() == "") {
-                    alert("尚未填寫取件時間");
+                    // alert("尚未填寫取件時間");
+                    Swal.fire({
+                        title: "尚未填寫取件時間",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: "確認",
+                        denyButtonText: `Don't save`
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            // Swal.fire("Saved!", "", "success");
+                            location.href = "#";
+                        } else if (result.isDenied) {
+                            Swal.fire("Changes are not saved", "", "info");
+                        }
+                    });
                 } else if (rad_pay == "") {
-                    alert("尚未填寫付款方式");
+                    // alert("尚未填寫付款方式");
+                    Swal.fire({
+                        title: "尚未填寫付款方式",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: "確認",
+                        denyButtonText: `Don't save`
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            // Swal.fire("Saved!", "", "success");
+                            location.href = "#";
+                        } else if (result.isDenied) {
+                            Swal.fire("Changes are not saved", "", "info");
+                        }
+                    });
                 } else if (rad_take == "") {
-                    alert("尚未填寫取件方式");
+                    // alert("尚未填寫取件方式");
+                    Swal.fire({
+                        title: "尚未填寫取件方式",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: "確認",
+                        denyButtonText: `Don't save`
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            // Swal.fire("Saved!", "", "success");
+                            location.href = "#";
+                        } else if (result.isDenied) {
+                            Swal.fire("Changes are not saved", "", "info");
+                        }
+                    });
                 } else {
                     // 生成訂單號碼 ---------------------------------------- start
                     // 生成當前時間戳記
